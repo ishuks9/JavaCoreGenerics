@@ -1,46 +1,33 @@
-import java.util.Arrays;
 
-/*
- * Generic Class To Find Max Values
- */
-public class FindMaxTest<E extends Comparable<E>> {
-    E[] values;
-
-    @SafeVarargs
-    public FindMaxTest(E... values) {
-        this.values = values;
-    }
-
-    public E findMaxValue() throws FindMaxException {
-        if (values.length == 0) {
-            throw new FindMaxException("No Elements to Compare");
-        } else {
-            Arrays.sort(values);
-            printMax(values[values.length - 1]);
-            return values[values.length - 1];
-        }
-    }
-
+public class FindMaxTest {
     /*
-     *Method to print Max Value
-     * @param is Generic Value
-     */
-    public void printMax(E value) {
-        System.out.println("Max Value = " + value);
+    * Generic Method to Find the Max Value of passed Arguments
+    **/
+    public <E extends Comparable> E findMaxValue(E firstValue, E secondValue, E thirdValue){
+        E max = firstValue;
+        if (secondValue.compareTo(max) > 0) {
+            max = secondValue;
+        }
+        if (thirdValue.compareTo(max) > 0) {
+            max = thirdValue;
+        }
+        printMax(max);
+        return max;
+    }
+    public <E> void printMax(E max){
+        System.out.println("Max Value = "+max);
     }
 
      public static void main(String[] args) {
     	 
-			FindMaxTest findmax = new FindMaxTest("capgemini","tcs","cognizant");
+			FindMaxTest findmax = new FindMaxTest();
 			
-			 try {
-				findmax.findMaxValue();
-			} catch (FindMaxException e) {
-			
-				e.printStackTrace();
-			}
+			 
+				findmax.findMaxValue(10, 20, 30);
+		
 			
 		}
 }
+
 
 
