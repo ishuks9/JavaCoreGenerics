@@ -1,68 +1,44 @@
-
-
-public class FindMaxTest {
-
-	public Integer findMaxValue(Integer firstNumber, Integer secondNumber, Integer thirdNumber) {
-        Integer max = firstNumber;
-        if (secondNumber.compareTo(max) > 0) {
-            max = secondNumber;
-        }
-        if (thirdNumber.compareTo(max) > 0) {
-            max = thirdNumber;
-        }
-        printMax(max);
-        return max;
-    }
-    public Float findMaxValue1(Float firstNumber, Float secondNumber, Float thirdNumber) {
-        Float max = firstNumber;
-        if (secondNumber.compareTo(max) > 0) {
-            max = secondNumber;
-        }
-        if (thirdNumber.compareTo(max) > 0) {
-            max = thirdNumber;
-        }
-        printMax(max);
-        return max;
-    }
-
-    public String findMaxValue2(String firstNumber, String secondNumber, String thirdNumber) {
-        String max = firstNumber;
-        if (secondNumber.compareTo(max) > 0) {
-            max = secondNumber;
-        }
-        if (thirdNumber.compareTo(max) > 0) {
-            max = thirdNumber;
-        }
-        printMax(max);
-        return max;
-    }
-
-    private void printMax(Integer max) {
-        System.out.println("Largest = " + max);
-    }
-
-    private void printMax(Float max) {
-        System.out.println("Largest = " + max);
-    }
-
-    private void printMax(String max) {
-        System.out.println("Largest = " + max);
-    }
-
+/*
+ * Generic Class To Find Max Values
+ */
+public class FindMaxTest<E extends Comparable<E>> {
+   
+    
+    
+   
+	 E i,j,k;
 
     
-    public static void main(String[] args) {
-    	
-		FindMaxTest findmax= new FindMaxTest();
-		findmax.findMaxValue(10, 20, 30);
-		
-		FindMaxTest findmax1= new FindMaxTest();
-		findmax1.findMaxValue1(10.5f, 20.5f, 30.5f);
-        
-		FindMaxTest findmax2= new FindMaxTest();
-		findmax2.findMaxValue2("Capgemini","Accenture","Cognizant");
 
+    public FindMaxTest(E i, E j, E k) {
+		// TODO Auto-generated constructor stub
+    	 this.i = i;
+    	 this.j=j;
+    	 this.k=k;
 	}
+
+
+    //Method to Find Max Value
+    public <E extends Comparable<E>> E findMaxValue(E i, E j,E k) {
+    	E max=i;
+        if (j.compareTo(max)>0)  {
+            max=j;
+           
+        } if (k.compareTo(max)>0)
+        		{
+        	     max=k;
+        	    
+        		}
+          return max;
+        }
+    
+     public static void main(String[] args) {
+    	 
+			FindMaxTest findmax = new FindMaxTest("capgemini","tcs","cognizant");
+			
+			 findmax.findMaxValue("capgemini","tcs","cognizant");
+			 System.out.println(findmax);
+		}
 }
 
 
